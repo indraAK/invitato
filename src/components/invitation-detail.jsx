@@ -13,14 +13,14 @@ import Gallery from "./gallery";
 import MessageForm from "./message-form";
 import Footer from "./footer";
 
-function InvitationDetail({ isOpen }) {
+function InvitationDetail({ opened }) {
   const audioElRef = useRef(null);
 
   useEffect(() => {
-    if (isOpen) {
+    if (opened) {
       audioElRef.current.play();
     }
-  }, [isOpen]);
+  }, [opened]);
 
   return (
     <main className="flex-shrink-0 w-full max-w-[500px] lg:w-[500px] shadow-2xl">

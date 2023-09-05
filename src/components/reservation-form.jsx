@@ -1,13 +1,26 @@
+import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 function ReservationForm() {
   return (
     <div className="container mx-auto px-4 py-6">
-      <p className="text-center text-sm text-primary font-medium my-6">
+      <motion.p
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, type: "spring", stiffness: 170, damping: 30 }}
+        viewport={{ once: true }}
+        className="text-center text-sm text-primary font-medium mt-6"
+      >
         Your presence shall be a great honor for us and our families. Please confirm your attendance through the reservation form below:
-      </p>
-      <form className="bg-secondary p-6 rounded-2xl mt-4 space-y-4">
+      </motion.p>
+      <motion.form
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, type: "spring", stiffness: 170, damping: 30 }}
+        viewport={{ once: true }}
+        className="bg-secondary p-6 rounded-2xl mt-8 space-y-4"
+      >
         <input type="text" placeholder="Name" className="form-control" />
         <textarea placeholder="Address" className={cn("form-control", "min-h-[80px]")}></textarea>
         <div className="space-y-1">
@@ -32,7 +45,7 @@ function ReservationForm() {
           <Send className="w-4 h-4 mr-2" />
           <span>Submit Confirmation</span>
         </button>
-      </form>
+      </motion.form>
     </div>
   );
 }
